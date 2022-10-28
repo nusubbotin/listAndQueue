@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Bus extends Transport implements CompetingTransport  {
 
-    public Bus(String brand, String model, float engineVolume) {
-        super(brand, model, engineVolume);
+    public Bus(String brand, String model, float engineVolume, int mechanicsLimit) {
+        super(brand, model, engineVolume, mechanicsLimit, CarCategory.D);
     }
 
     public void startMoving(){

@@ -8,6 +8,7 @@ public abstract class Driver implements DriverInterface{
     private String fullName;
     private int experience;
 
+    private Transport curAuto;
 
     protected enum DriverCategory {
         B('B'), C('C'), D('D');
@@ -35,6 +36,19 @@ public abstract class Driver implements DriverInterface{
 
     public int getExperience() {
         return experience;
+    }
+
+    public Transport getCurAuto() {
+        return curAuto;
+    }
+
+    public void setCurAuto(Transport curAuto) {
+        if (this.curAuto  != null){
+            throw new IllegalArgumentException("Гонщик управляет только одим автомобилем!");
+        }else {
+            this.curAuto = curAuto;
+            curAuto.getDrivers().add(this);
+        }
     }
 
     public Driver(char driverCategory, String fullName, int experience) {
