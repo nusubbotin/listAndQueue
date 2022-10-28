@@ -46,6 +46,7 @@ public abstract class Driver implements DriverInterface{
         if (this.curAuto  != null){
             throw new IllegalArgumentException("Гонщик управляет только одим автомобилем!");
         }else {
+            System.out.println("Гонщик "+ this.fullName + " управляет ТС "+ curAuto.getModel());
             this.curAuto = curAuto;
             curAuto.getDrivers().add(this);
         }

@@ -1,6 +1,7 @@
 package car;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Mechanic <T extends Transport> {
     private String name;
@@ -35,5 +36,28 @@ public class Mechanic <T extends Transport> {
         checkSkils(auto);
         System.out.println("Механик " + this.name + " починил автомобиль " + auto.getModel());
         auto.addMechanic(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", carCategories=" + carCategories +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return Objects.equals(name, mechanic.name) && Objects.equals(surname, mechanic.surname) && Objects.equals(companyName, mechanic.companyName) && Objects.equals(carCategories, mechanic.carCategories);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, companyName, carCategories);
     }
 }
