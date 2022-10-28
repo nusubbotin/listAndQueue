@@ -15,13 +15,13 @@ public class ServiceStation <T extends Transport> {
             throw new IllegalArgumentException("На станции техобслуживания обслуживаюся только Легковой транспорт и Грузовой транспорт");
         }
 
-        //try {
+        try {
             System.out.println("Автомобиль " + auto.getModel() + " встал в очередь на техобслуживание");
             autoQueue.offer(auto);
             System.out.println("autoQueue.size() = " + autoQueue.size());
-        //}catch (IllegalStateException e){
-         //   throw new IllegalArgumentException("На Станции техобслуживания превышена очередь машин ожидающих ремонт");
-        //}
+        }catch (IllegalStateException e){
+            throw new IllegalArgumentException("На Станции техобслуживания превышена очередь машин ожидающих ремонт");
+        }
     }
 
     public void popAuto(){
