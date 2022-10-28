@@ -10,6 +10,12 @@ public class AutoRace <T extends Transport & CompetingTransport, D extends Drive
 
     private ArrayList<Mechanic> mechanics = new ArrayList<>();
 
+    private ServiceStation serviceStation;
+
+    public AutoRace(ServiceStation serviceStation) {
+        this.serviceStation = serviceStation;
+    }
+
     public ArrayList<T> getCars() {
         return cars;
     }
@@ -24,5 +30,9 @@ public class AutoRace <T extends Transport & CompetingTransport, D extends Drive
 
     public ArrayList<Mechanic> getMechanics() {
         return mechanics;
+    }
+
+    public ServiceStation getServiceStation() {
+        return serviceStation;
     }
 }
