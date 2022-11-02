@@ -3,8 +3,8 @@ package car;
 import java.util.Objects;
 
 public class Car extends Transport implements CompetingTransport  {
-    public Car(String brand, String model, float engineVolume) {
-        super(brand, model, engineVolume);
+    public Car(String brand, String model, float engineVolume, int mechanicsLimit) {
+        super(brand, model, engineVolume, mechanicsLimit, CarCategory.B);
     }
 
     public void startMoving(){
